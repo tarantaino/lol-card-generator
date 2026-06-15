@@ -59,9 +59,6 @@ generateCards(champions);
 console.log("DB succesfully loaded!", champions);
 
 const searchInput = document.getElementById("search-bar");
-
-
-const searchInput = document.getElementById("search-bar");
 const roleFilter = document.getElementById("role-filter");
 
 
