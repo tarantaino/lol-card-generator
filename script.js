@@ -75,7 +75,7 @@ function applyFilters() {
 
         const matchesRole = selectedRole === "all" || champ.type.toLowerCase().includes(selectedRole);
 
-        // Il campione viene mostrato SOLO se passa ENTRAMBI i test (&&)
+
         return matchesName && matchesRole;
     });
 
