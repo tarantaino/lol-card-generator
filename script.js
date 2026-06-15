@@ -60,14 +60,32 @@ console.log("DB succesfully loaded!", champions);
 
 const searchInput = document.getElementById("search-bar");
 
-searchInput.addEventListener("keyup", (event) => {
 
-    const searchText = event.target.value.toLowerCase();
+const searchInput = document.getElementById("search-bar");
+const roleFilter = document.getElementById("role-filter");
+
+
+function applyFilters() {
+
+    const searchText = searchInput.value.toLowerCase();
+    const selectedRole = roleFilter.value.toLowerCase();
+
 
     const filteredChamp = champions.filter(champ => {
-        return champ.name.toLocaleLowerCase().includes(searchText);
-    })
+
+        const matchesName = champ.name.toLowerCase().includes(searchText);
+
+
+        const matchesRole = selectedRole === "all" || champ.type.toLowerCase().includes(selectedRole);
+
+        // Il campione viene mostrato SOLO se passa ENTRAMBI i test (&&)
+        return matchesName && matchesRole;
+    });
+
 
     generateCards(filteredChamp);
-});
+}
 
+
+searchInput.addEventListener("keyup", applyFilters);
+roleFilter.addEventListener("change", applyFilters);

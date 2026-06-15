@@ -52,6 +52,8 @@ body {
     border: 8px solid var(--card-border);
 
     transition: all 0.3s ease;
+
+    position: relative;
 }
 
 .card:hover {
@@ -71,7 +73,9 @@ body {
     display: flex;
     justify-content: space-between;
     /*push title left and cost right */
-    align-items: center;
+    align-items: flex-start;
+    gap: 15px;
+
     border-bottom: 2px solid var(--card-border);
     border-top: none;
     padding-bottom: 10px;
@@ -81,24 +85,31 @@ body {
     font-family: 'Cinzel', serif;
     font-size: 17px;
     color: var(--card-border);
-    white-space: nowrap;
-    /*so that title won't go in new line*/
+    line-height: 1.2;
+    margin-top: 5px;
+    ;
 }
 
 .card-cost {
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    z-index: 10;
+    /* always in the foreground */
+
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 32px;
-    height: 32px;
+    width: 38px;
+    height: 32px8;
     background: var(--accent);
     color: var(--text-dark);
     font-weight: bold;
-    font-size: 16px;
+    font-size: 18px;
     border-radius: 50%;
     /*from square to circle*/
     /*3d shadow effect*/
-    box-shadow: 0 0 8px var(--accent), inset 0 -3px 6px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5), inset 0 -3px 6px rgba(0, 0, 0, 0.3);
     flex-shrink: 0;
 }
 
