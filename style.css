@@ -1,0 +1,201 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Oswald:wght@400;700&display=swap');
+
+
+:root {
+    --bg-screen: #0a0e17;
+    --card-base: #1e2328;
+    --card-border: #c8aa6e;
+    --accent: #6bd4a1;
+    --text-main: #f0e6d2;
+    /* Ho cambiato 's' in '2' */
+    --text-dark: #0a0e17;
+}
+
+
+
+
+/* removing basic default browser borders */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Oswald', sans-serif;
+
+}
+
+
+body {
+    background-color: var(--bg-screen);
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+}
+
+/* Main card */
+.card {
+    /* exact proportion 63:88 multiplied by 5 for web */
+    width: 315px;
+    min-height: 440px;
+    background-color: var(--card-base);
+    /*morbid beige*/
+    border-radius: 15px;
+    padding: 15px;
+    box-shadow: 0 15px 40px rgba(107, 212, 161, 0.15);
+    /* 3d depth effect */
+    /*internal flexbos for fixing elements vertically */
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    /*uniform space in between blocks*/
+    border: 8px solid var(--card-border);
+
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-12px);
+
+    box-shadow: 0 30px 60px rgba(107, 212, 161, 0.4);
+    /*to amplifies the shadow like it's on a table*/
+
+    border-color: #e0c88f;
+    /*let the gold shine*/
+
+
+}
+
+/*HEADER: title and cost horizontally aligned */
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    /*push title left and cost right */
+    align-items: center;
+    border-bottom: 2px solid var(--card-border);
+    border-top: none;
+    padding-bottom: 10px;
+}
+
+.card-title {
+    font-family: 'Cinzel', serif;
+    font-size: 17px;
+    color: var(--card-border);
+    white-space: nowrap;
+    /*so that title won't go in new line*/
+}
+
+.card-cost {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 32px;
+    height: 32px;
+    background: var(--accent);
+    color: var(--text-dark);
+    font-weight: bold;
+    font-size: 16px;
+    border-radius: 50%;
+    /*from square to circle*/
+    /*3d shadow effect*/
+    box-shadow: 0 0 8px var(--accent), inset 0 -3px 6px rgba(0, 0, 0, 0.3);
+    flex-shrink: 0;
+}
+
+/* ILLUSTRATION SPACE */
+
+.card-image-placeholder {
+    width: 100%;
+    height: 190px;
+    border: 2px solid var(--card-border);
+    border-radius: 5px;
+    /*like a cutting mask*/
+    overflow: hidden;
+    display: block;
+}
+
+.card-artwork {
+    width: 100%;
+    height: 100%;
+
+    /*solid fill*/
+    display: block;
+    /*object-fit - adapts the image cutting excess without deforming it */
+    object-fit: cover;
+    /*pushes focus toward the half mid of the image for better centering */
+    object-position: top center;
+
+    transition: transform 0.4s ease;
+}
+
+.card:hover .card-artwork {
+    transform: scale(1.05);
+    /*zoom in 5%*/
+}
+
+/* TEXT and ABILITY */
+
+.card-body {
+    background: rgba(0, 0, 0, 0.4);
+    /*semi-transparent*/
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    color: var(--text-main);
+    border-left: 3px solid var(--accent);
+    /*green lateral detail*/
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.card-type {
+    font-style: italic;
+    margin-bottom: 8px;
+    color: var(--card-border);
+    border-bottom: 1px solid rgba(200, 170, 110, 0.3);
+}
+
+.card-effect {
+    color: #e2e8f0;
+    line-height: 1.5;
+    margin-top: 5px;
+}
+
+/* STATS (ATK/DEF) */
+
+.card-stats {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    background-color: #111418;
+    color: var(--card-border);
+    border: 1px solid var(--card-border);
+    padding: 8x, 20px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 16px;
+    text-transform: uppercase;
+
+    margin-top: auto;
+    /*pushes the stats at the card base*/
+}
+
+/*lane icon*/
+
+.lane-icon {
+    height: 25px;
+    /*force width to be equal to the text one*/
+    width: auto;
+    /*keeping the correct proportions*/
+    transform: translateY(-1px);
+}
+
+#card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+    padding: 40px 20px;
+}
