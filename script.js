@@ -101,8 +101,6 @@ function generateCards(championsArray) {
 }
 
 
-
-
 function displayCurrentPage() {
 
     //where to cut the array
@@ -115,7 +113,7 @@ function displayCurrentPage() {
 
     //return pages total and update the text
     const totalPages = Math.ceil(currentFilteredChamps.lenght / itemsPerPage) || 1;
-    pageInfo.innerText = `Page ${currentPage} of ${totalPage}`;
+    pageInfo.innerText = `Page ${currentPage} of ${totalPages}`;
 
     prevBtn.style.opacity = prevBtn.disabled ? "0.5" : "1";
     nextBtn.style.opacity = nextBtn.disabled ? "0.5" : "1";
@@ -133,7 +131,7 @@ prevBtn.addEventListener("click", () => {
 
 nextBtn.addEventListener("click", () => {
     const totalPages = Math.ceil(currentFilteredChamps.lenght / itemsPerPage);
-    if (currentPage < totalPage) {
+    if (currentPage < totalPages) {
         currentPage++;
         displayCurrentPage();
         window.scrollTo({ top: 0, behavior: 'smooth' }); //back to top 
