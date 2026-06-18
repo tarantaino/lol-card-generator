@@ -182,6 +182,11 @@ function applyFilters() {
     const searchText = secHTML(rSearchText);
     const selectedRole = roleFilter.value.toLowerCase();
 
+
+    console.log("1. Raw Input: ", rSearchText);
+    console.log("2. Sec Input: ", searchText);
+
+
     currentFilteredChamps = champions.filter(champ => {
         const matchesName = champ.name.toLowerCase().includes(searchText);
         const matchesRole = selectedRole === "all" || champ.type.toLowerCase().includes(selectedRole);
