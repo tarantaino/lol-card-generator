@@ -24,7 +24,7 @@ async function fetchChampions() {
         champions = riotArray.map(champ => {
             return {
                 name: champ.name,
-                cost: champ.info.difficulty,
+                cost: champ.info.difficulty === 0 ? 1 : champ.info.difficulty,
                 type: "Champion - " + champ.tags[0],
                 effect: champ.blurb.substring(0, 90) + "...", //lore as card effect
                 atk: champ.info.attack * 10, //multiply by 10 to have big stats
