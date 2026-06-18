@@ -34,8 +34,8 @@ async function fetchChampions() {
                 cost: champ.info.difficulty === 0 ? 1 : champ.info.difficulty,
                 type: "Champion - " + champ.tags[0],
                 effect: champ.blurb.substring(0, 90) + "...", //lore as card effect
-                atk: champ.info.attack * 10, //multiply by 10 to have big stats
-                def: champ.info.defense * 10,
+                atk: champ.info.attack === 0 ? 50 : champ.info.attack * 10, //multiply by 10 to have big stats
+                def: champ.info.defense === 0 ? 50 : champ.info.attack * 10, //akshan has no data apparently
                 imageUrl: `https://ddragon.leagueoflegends.com/cdn/img/champion/splash/${champ.id}_0.jpg`,
                 laneIcon: "TopLane.png", //for test purposes  
             };
