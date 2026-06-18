@@ -124,18 +124,10 @@ function displayCurrentPage() {
     pageSelector.innerHTML = "";
 
     for (let i = 1; i <= totalPages; i++) {
-        const isSelected = i === currentPages ? "selected" : "";
+        const isSelected = i === currentPage ? "selected" : "";
         pageSelector.innerHTML += `<option value="${i}" ${isSelected}>Page ${i} of ${totalPages}</option>`;
     }
 
-
-    pageInfo.innerText = `Page ${currentPage} of ${totalPages}`;
-
-
-    prevBtn.style.opacity = prevBtn.disabled ? "0.5" : "1";
-    nextBtn.style.opacity = nextBtn.disabled ? "0.5" : "1";
-    prevBtn.style.cursor = prevBtn.disabled ? "not-allowed" : "pointer";
-    nextBtn.style.cursor = nextBtn.disabled ? "not-allowed" : "pointer";
 }
 
 prevBtn.addEventListener("click", () => {
