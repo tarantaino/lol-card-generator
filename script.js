@@ -61,7 +61,7 @@ async function fetchChampions() {
         });
 
         console.log("Data downloaded from Riot servers: ", champions);
-        //show the first 20 champs to not overload the screen
+
 
         const allRoles = new Set();
 
