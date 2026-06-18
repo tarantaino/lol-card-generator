@@ -90,7 +90,6 @@ function generateCards(championsArray) {
                 
                 <div class="card-stats">
                     <span>ATK: ${champ.atk}</span>
-                    <img src="${champ.laneIcon}" alt="Lane Icon" class="lane-icon">
                     <span>DEF: ${champ.def}</span>
                 </div>
             </div>
