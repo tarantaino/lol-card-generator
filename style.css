@@ -193,15 +193,6 @@ body {
     /*pushes the stats at the card base*/
 }
 
-/*lane icon*/
-
-.lane-icon {
-    height: 25px;
-    /*force width to be equal to the text one*/
-    width: auto;
-    /*keeping the correct proportions*/
-    transform: translateY(-1px);
-}
 
 #card-container {
     display: flex;
