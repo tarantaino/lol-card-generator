@@ -6,8 +6,15 @@ let champions = [];
 
 async function fetchChampions() {
     try {
-        // HTTP request - Patch 13.24.1 data
-        const resopnse = await fetch("https://ddragon.leagueoflegends.com/cdn/13.24.1/data/en_US/champion.json");
+
+        const versionResponse = await fetch("https://ddragon.leagueoflegends.com/api/versions.json");
+        const versions = await versionResponse.json(); //we ask Riot the patch lists available
+
+        const latestPatch = versions[0];
+        console.log("Current patch detected: ", latestPatch);
+
+        //dyanmic URL injecting the correct patch
+        const response = await fetch(`https://ddragon.leagueoflegends.com/cdn/${latestPatch}/data/en_US/champion.json`);
         //response converted in json to be read by js
         const data = await Response.json();
         //Riot delivers champs as a dictionary, we convert it in array
