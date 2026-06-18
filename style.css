@@ -82,21 +82,12 @@ body {
 }
 
 .card-title {
-    font-size: 24px;
-    font-weight: 900;
-    margin: 0;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-
-    color: #ffcc00;
-
-    -webkit-text-stroke: 1.5px #3a2200;
-
-    text-shadow:
-        -1px -1px 0px #fffa8a,
-        2px 2px 0px #8a5a19,
-        3px 4px 6px rgba(0, 0, 0, 0.8),
-        0px 0px 12px rgba(255, 204, 0, 0.6);
+    font-family: 'Cinzel', serif;
+    font-size: 17px;
+    color: var(--card-border);
+    line-height: 1.2;
+    margin-top: 5px;
+    ;
 }
 
 .card-cost {
