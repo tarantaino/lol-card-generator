@@ -196,7 +196,7 @@ function applyFilters() {
 
 //event listener
 if (searchInput && roleFilter) {
-    searchInput.addEventListener("keyup", applyFilters);
+    searchInput.addEventListener("input", applyFilters);
     roleFilter.addEventListener("change", applyFilters);
 }
 
