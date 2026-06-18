@@ -26,20 +26,19 @@
         </div>
     </div>
 
-    <div id="pag-ctrls"
-        style="text-align: center; margin: 30px; color: var(--card-border); font-family: 'Oswald', sans-serif;">
+    <div id="pag-ctrls" style="margin: 30px; display: flex; justify-content: center; align-items: center; gap: 20px;">
         <button id="prev-btn"
             style="padding: 8px 16px; cursor: pointer; border-radius: 5px; background: var(--card-border); color: #0a0e17; border: none; font-weight: bold; font-size: 16px;">&#8592;
             Back</button>
 
-        <span id="page-info" style="margin: 0 20px; font-size: 18px; font-weight: bold;">1 of X</span>
+
+        <select id="page-selector"
+            style="padding: 8px 15px; font-size: 16px; border-radius: 5px; background: #111418; color: white; border: 2px solid var(--card-border); cursor: pointer; font-family: 'Oswald', sans-serif;"></select>
 
         <button id="next-btn"
             style="padding: 8px 16px; cursor: pointer; border-radius: 5px; background: var(--card-border); color: #0a0e17; border: none; font-weight: bold; font-size: 16px;">Next
             &#8594;</button>
-
     </div>
-
 
     <div id="card-container"></div>
 
