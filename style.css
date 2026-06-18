@@ -109,7 +109,19 @@ body {
     border-radius: 50%;
     /*from square to circle*/
     /*3d shadow effect*/
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5), inset 0 -3px 6px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(135 deg, #fcebb6 0%, #c8aa6e 40%, #8a6a32 100%);
+
+    border: 2px solid #4a330e;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.6), inset 0 3px 5px rgba(255, 255, 255, 0.7), inset 0 -3px 5px rgba(0, 0, 0, 0.5);
+
+    /*emboss*/
+    color: #2b1d07;
+    font-weight: bold;
+    font-size: 18px;
+    text-shadow:
+        1px 1px 1px rgba(255, 255, 255, 0.6),
+        -1px -1px 1px rgba(0, 0, 0, 0.4);
+
     flex-shrink: 0;
 }
 
