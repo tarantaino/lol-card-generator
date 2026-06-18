@@ -5,6 +5,7 @@ const roleFilter = document.getElementById("role-filter");
 const prevBtn = document.getElementById("prev-btn");
 const nextBtn = document.getElementById("next-btn");
 const pageInfo = document.getElementById("page-info");
+const paginationControls = document.getElementById("pag-ctrls");
 
 let champions = [];
 let currentFilteredChamps = [];
@@ -111,7 +112,25 @@ function displayCurrentPage() {
 
     //return pages total and update the text
     const totalPages = Math.ceil(currentFilteredChamps.length / itemsPerPage) || 1;
+    if (totalPages <= 1) {
+        paginationControls.style.display = "none";
+    } else {
+        paginationControls.style.display = "flex"; //visible again if more than 1 pg
+    }
+
+    prevBtn.style.visibility = currentPage === 1 ? "hidden" : "visible";
+    nextBtn.style.visibility = currentPage === totalPages ? "hidden" : "visible";
+
+    pageSelector.innerHTML = "";
+
+    for (let i = 1; i <= totalPages; i++) {
+        const isSelected = i === currentPages ? "selected" : "";
+        pageSelector.innerHTML += `<option value="${i}" ${isSelected}>Page ${i} of ${totalPages}</option>`;
+    }
+
+
     pageInfo.innerText = `Page ${currentPage} of ${totalPages}`;
+
 
     prevBtn.style.opacity = prevBtn.disabled ? "0.5" : "1";
     nextBtn.style.opacity = nextBtn.disabled ? "0.5" : "1";
