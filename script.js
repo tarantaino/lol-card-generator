@@ -56,7 +56,9 @@ async function fetchChampions() {
             roleFilter.innerHTML += optionHTML; // injeceted into the dropdown menu
         });
 
-        generateCards(champions.slice(0, 20));
+        //filtered array with champs initialized 
+        currentFilteredChamps = [...champions];
+        displayCurrentPage(); //launch pagination for 1st time
 
     } catch (error) {
         console.error("Riot Server impossibile to reach: ", error);
