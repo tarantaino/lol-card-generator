@@ -1,5 +1,5 @@
 # League of Legends Cards Generator
-![HTML](https://img.shields.io/badge/HTML-style=for-the-badge&logo=html&logoColor=yellow)
+![HTML](https://img.shields.io/badge/html-%230db7ed.svg?style=for-the-badge&logo=html&logoColor=yellow)
 ![CSS](https://img.shields.io/badge/CSS-style=for-the-badge&logo=css&logoColor=yellow)
 ![JS](https://img.shields.io/badge/JS-style=for-the-badge&logo=js&logoColor=orange)
 
