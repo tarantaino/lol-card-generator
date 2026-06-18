@@ -2,7 +2,14 @@ const cardContainer = document.getElementById("card-container");
 const searchInput = document.getElementById("search-bar");
 const roleFilter = document.getElementById("role-filter");
 
+const prevBtn = document.getElementById("prev-btn");
+const nextBtn = document.getElementById("next-btn");
+const pageInfo = document.getElementById("page-info");
+
 let champions = [];
+let currentFilteredChamps = [];
+let currentPage = 1;
+const itemsPerPage = 20;
 
 async function fetchChampions() {
     try {
@@ -91,8 +98,49 @@ function generateCards(championsArray) {
     });
 }
 
-// filters
 
+
+
+function displayCurrentPage() {
+
+    //where to cut the array
+    const startIndex = (currentPage - 1) * itemsPerPage;
+    const endIndex = startIndex + itemsPerPage;
+
+    const championsToShow = currentFilteredChamps.slice(startIndex, endIndex);
+    //show cards
+    generateCards(championsToShow);
+
+    //return pages total and update the text
+    const totalPages = Math.ceil(currentFilteredChamps.lenght / itemsPerPage) || 1;
+    pageInfo.innerText = `Page ${currentPage} of ${totalPage}`;
+
+    prevBtn.style.opacity = prevBtn.disabled ? "0.5" : "1";
+    nextBtn.style.opacity = nextBtn.disabled ? "0.5" : "1";
+    prevBtn.style.cursor = prevBtn.disabled ? "not-allowed" : "pointer";
+    nextBtn.style.cursor = nextBtn.disabled ? "not-allowed" : "pointer";
+}
+
+prevBtn.addEventListener("click", () => {
+    if (currentPage > 1) {
+        currentPage--;
+        displayCurrentPage();
+        window.scrollTo({ top: 0, behavior: 'smooth' }); //back to top
+    }
+});
+
+nextBtn.addEventListener("click", () => {
+    const totalPages = Math.ceil(currentFilteredChamps.lenght / itemsPerPage);
+    if (currentPage < totalPage) {
+        currentPage++;
+        displayCurrentPage();
+        window.scrollTo({ top: 0, behavior: 'smooth' }); //back to top 
+    }
+});
+
+
+
+// filters
 function applyFilters() {
     if (!searchInput || !roleFilter) return;
 
@@ -105,6 +153,8 @@ function applyFilters() {
         return matchesName && matchesRole;
     });
 
+
+    currentPage = 1;
     generateCards(filteredChamp);
 }
 
