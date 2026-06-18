@@ -29,13 +29,26 @@ async function fetchChampions() {
                 effect: champ.blurb.substring(0, 90) + "...", //lore as card effect
                 atk: champ.info.attack * 10, //multiply by 10 to have big stats
                 def: champ.info.defense * 10,
-                imageUrl: 'https://ddragon.leagueoflegends.com/cdn/img/champion/loading/${champ.id}_0.jpg',
-                laneIcon: "TopLane.png", //for test purposes
+                imageUrl: ` https://ddragon.leagueoflegends.com/cdn/img/champion/loading/${champ.id}_0.jpg`,
+                laneIcon: "TopLane.png", //for test purposes  
             };
         });
 
         console.log("Data downloaded from Riot servers: ", champions);
         //show the first 20 champs to not overload the screen
+
+        const allRoles = new Set();
+
+        // role extraction for filtering
+        riotArray.forEach(champ => {
+            allRoles.add(champ.tags[0]);
+        });
+
+        allRoles.forEach(role => {
+            const optionHTML = `<option value="${role.toLowerCase()}">${role}</option>`;
+            roleFilter.innerHTML += optionHTML; // injeceted into the dropdown menu
+        });
+
         generateCards(champions.slice(0, 20));
 
     } catch (error) {
@@ -100,5 +113,7 @@ if (searchInput && roleFilter) {
     searchInput.addEventListener("keyup", applyFilters);
     roleFilter.addEventListener("change", applyFilters);
 }
+
+
 
 fetchChampions(); //request starts
