@@ -19,6 +19,19 @@ let currentFilteredChamps = [];
 let currentPage = 1;
 const itemsPerPage = 20;
 
+
+function secHTML(str) {
+    if (!str) return "";
+    return str.toString()
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;")
+
+}
+
+
 async function fetchChampions() {
     try {
 
@@ -80,6 +93,11 @@ function generateCards(championsArray) {
     cardContainer.innerHTML = "";
 
     championsArray.forEach(champ => {
+
+        const secName = secHTML(champ.name);
+        const secType = secHTML(champ.type);
+        const secEffect = secHTML(champ.effect);
+
         const cardHTML = `
             <div class="card">
                 <div class="card-header">
@@ -160,7 +178,9 @@ nextBtn.addEventListener("click", () => {
 function applyFilters() {
     if (!searchInput || !roleFilter) return;
 
-    const searchText = searchInput.value.toLowerCase();
+    const rSearchText = searchInput.value.toLowerCase();
+
+    const searchText = secHTML(rSearchText);
     const selectedRole = roleFilter.value.toLowerCase();
 
     currentFilteredChamps = champions.filter(champ => {
