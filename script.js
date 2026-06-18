@@ -23,7 +23,7 @@ async function fetchChampions() {
                 atk: champ.info.attack * 10, //multiply by 10 to have big stats
                 def: champ.info.defense * 10,
                 imageUrl: 'https://ddragon.leagueoflegends.com/cdn/img/champion/loading/${champ.id}_0.jpg',
-                laneIcon = "TopLane.png", //for test purposes
+                laneIcon: "TopLane.png", //for test purposes
             };
         });
 
