@@ -97,8 +97,8 @@ function generateCards(championsArray) {
                 </div>
                 
                 <div class="card-stats">
-                    <span>ATK: ${champ.atk}</span>
-                    <span>DEF: ${champ.def}</span>
+                    <span class="stat-atk">ATK: ${champ.atk}</span>
+                    <span class ="stat-def">DEF: ${champ.def}</span>
                 </div>
             </div>
         `;

@@ -193,6 +193,22 @@ body {
     /*pushes the stats at the card base*/
 }
 
+.stat-atk {
+    color: #ff9999;
+    text-shadow:
+        0 0 5px rgba(255, 77, 77, 0.8),
+        /*internal and external light*/
+        0 0 15px rgba(255, 0, 0, 0.6);
+}
+
+.stat-def {
+    color: #99ccff;
+    text-shadow:
+        0 0 5px rgba(77, 166, 255, 0.8),
+        /*internal and external light*/
+        0 0 15px rgba(0, 102, 255, 0.6);
+}
+
 
 #card-container {
     display: flex;
