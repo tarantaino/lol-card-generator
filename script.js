@@ -29,7 +29,7 @@ async function fetchChampions() {
                 effect: champ.blurb.substring(0, 90) + "...", //lore as card effect
                 atk: champ.info.attack * 10, //multiply by 10 to have big stats
                 def: champ.info.defense * 10,
-                imageUrl: `https://ddragon.leagueoflegends.com/cdn/img/champion/loading/${champ.id}_0.jpg`,
+                imageUrl: `https://ddragon.leagueoflegends.com/cdn/img/champion/splash/${champ.id}_0.jpg`,
                 laneIcon: "TopLane.png", //for test purposes  
             };
         });
