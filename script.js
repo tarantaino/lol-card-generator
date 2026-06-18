@@ -32,7 +32,7 @@ async function fetchChampions() {
         generateCards(champions.slice(0, 20));
 
     } catch (error) {
-        console.errore("Riot Server impossibile to reach: ", error);
+        console.error("Riot Server impossibile to reach: ", error);
         cardContainer.innerHTML = "<h2 style='color: white;'>API connection error. Check console.</h2>";
     }
 
