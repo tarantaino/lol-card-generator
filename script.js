@@ -190,7 +190,7 @@ function applyFilters() {
 
 
     currentPage = 1;
-    generateCards(filteredChamp);
+    displayCurrentPage();
 }
 
 //event listener
