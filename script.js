@@ -4,7 +4,6 @@ const roleFilter = document.getElementById("role-filter");
 
 const prevBtn = document.getElementById("prev-btn");
 const nextBtn = document.getElementById("next-btn");
-const pageInfo = document.getElementById("page-info");
 const paginationControls = document.getElementById("pag-ctrls");
 const pageSelector = document.getElementById("page-selector");
 
