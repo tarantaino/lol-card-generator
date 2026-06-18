@@ -6,6 +6,13 @@ const prevBtn = document.getElementById("prev-btn");
 const nextBtn = document.getElementById("next-btn");
 const pageInfo = document.getElementById("page-info");
 const paginationControls = document.getElementById("pag-ctrls");
+const pageSelector = document.getElementById("page-selector");
+
+pageSelector.addEventListener("change", (event) => {
+    currentPage = parseInt(event.target.value);
+    displayCurrentPage();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+});
 
 let champions = [];
 let currentFilteredChamps = [];
@@ -36,7 +43,7 @@ async function fetchChampions() {
                 type: "Champion - " + champ.tags[0],
                 effect: champ.blurb.substring(0, 90) + "...", //lore as card effect
                 atk: champ.info.attack === 0 ? 50 : champ.info.attack * 10, //multiply by 10 to have big stats
-                def: champ.info.defense === 0 ? 50 : champ.info.attack * 10, //akshan has no data apparently
+                def: champ.info.defense === 0 ? 50 : champ.info.defense * 10, //akshan has no data apparently
                 imageUrl: `https://ddragon.leagueoflegends.com/cdn/img/champion/splash/${champ.id}_0.jpg`,
             };
         });
@@ -156,7 +163,7 @@ function applyFilters() {
     const searchText = searchInput.value.toLowerCase();
     const selectedRole = roleFilter.value.toLowerCase();
 
-    const filteredChamp = champions.filter(champ => {
+    currentFilteredChamps = champions.filter(champ => {
         const matchesName = champ.name.toLowerCase().includes(searchText);
         const matchesRole = selectedRole === "all" || champ.type.toLowerCase().includes(selectedRole);
         return matchesName && matchesRole;
