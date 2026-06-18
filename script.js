@@ -16,7 +16,7 @@ async function fetchChampions() {
         //dyanmic URL injecting the correct patch
         const response = await fetch(`https://ddragon.leagueoflegends.com/cdn/${latestPatch}/data/en_US/champion.json`);
         //response converted in json to be read by js
-        const data = await Response.json();
+        const data = await response.json();
         //Riot delivers champs as a dictionary, we convert it in array
         const riotArray = Object.values(data.data);
 
