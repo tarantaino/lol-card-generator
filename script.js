@@ -112,7 +112,7 @@ function displayCurrentPage() {
     generateCards(championsToShow);
 
     //return pages total and update the text
-    const totalPages = Math.ceil(currentFilteredChamps.lenght / itemsPerPage) || 1;
+    const totalPages = Math.ceil(currentFilteredChamps.length / itemsPerPage) || 1;
     pageInfo.innerText = `Page ${currentPage} of ${totalPages}`;
 
     prevBtn.style.opacity = prevBtn.disabled ? "0.5" : "1";
@@ -130,7 +130,7 @@ prevBtn.addEventListener("click", () => {
 });
 
 nextBtn.addEventListener("click", () => {
-    const totalPages = Math.ceil(currentFilteredChamps.lenght / itemsPerPage);
+    const totalPages = Math.ceil(currentFilteredChamps.length / itemsPerPage);
     if (currentPage < totalPages) {
         currentPage++;
         displayCurrentPage();
