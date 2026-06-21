@@ -7,6 +7,10 @@ const nextBtn = document.getElementById("next-btn");
 const paginationControls = document.getElementById("pag-ctrls");
 const pageSelector = document.getElementById("page-selector");
 
+const modal = document.getElementById("champion-modal");
+const modalBody = document.getElementById("modal-body");
+const closeBtn = document.querySelector(".close-btn");
+
 pageSelector.addEventListener("change", (event) => {
     currentPage = parseInt(event.target.value);
     displayCurrentPage();
