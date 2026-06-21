@@ -54,6 +54,7 @@ async function fetchChampions() {
                 cost: champ.info.difficulty === 0 ? 1 : champ.info.difficulty,
                 type: "Champion - " + champ.tags[0],
                 effect: champ.blurb.substring(0, 90) + "...", //lore as card effect
+                fullLore: champ.blurb, //saved in Modal
                 atk: champ.info.attack === 0 ? 50 : champ.info.attack * 10, //multiply by 10 to have big stats
                 def: champ.info.defense === 0 ? 50 : champ.info.defense * 10, //akshan has no data apparently
                 imageUrl: `https://ddragon.leagueoflegends.com/cdn/img/champion/splash/${champ.id}_0.jpg`,
@@ -84,6 +85,35 @@ async function fetchChampions() {
         cardContainer.innerHTML = "<h2 style='color: white;'>API connection error. Check console.</h2>";
     }
 
+}
+
+//modal, lore and scroll block
+function openModal(champName) {
+    const champ = champions.find(c => c.name === champName);
+    if (!champ) return;
+
+    modalBody.innerHTML = `
+        <h2 style="color: #ffcc00; text-align: center; font-size: 28px; margin-bottom: 15px;">${sanitizeHTML(champ.name)}</h2>
+        <img src="${champ.imageUrl}" style="width: 100%; border-radius: 5px; border: 2px solid var(--card-border);">
+        <p style="margin-top: 20px; font-size: 16px; line-height: 1.6; text-align: justify;">${sanitizeHTML(champ.fullLore)}</p>
+        <div class="card-stats" style="justify-content: center; margin-top: 20px; font-size: 20px;">
+            <span class="stat-atk" style="margin-right: 20px;">ATK: ${champ.atk}</span> 
+            <span class="stat-def">DEF: ${champ.def}</span>
+        </div>
+    `;
+
+    modal.style.dislpay = "block";
+    document.body.style.overflow = "hidden"; //scroll block
+}
+
+function closeModal() {
+    modal.style.dislpay = "none";
+    document.body.style.overflow = "auto";
+}
+
+closeBtn.onclick = closeModal;
+window.onclick = (e) => {
+    if (e.target == modal) closeModal();
 }
 
 // generate cards function
